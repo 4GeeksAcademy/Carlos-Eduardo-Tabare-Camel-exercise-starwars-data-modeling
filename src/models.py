@@ -56,14 +56,16 @@ class Characters(Base):
 
 class Favoriteplanets(Base):
     __tablename__ = 'planetasfavoritos'
-    usuario_id = Column(Integer, ForeignKey('usuarios.id'), primary_key=True)
-    planetas_id = Column(Integer, ForeignKey('planetas.id'), primary_key=True)
+    id = Column(Integer, primary_key=True)
+    usuario_id = Column(Integer, ForeignKey('usuarios.id'))
+    planetas_id = Column(Integer, ForeignKey('planetas.id'))
 
 
 class Favoritecharacters(Base):
     __tablename__ = 'personajesfavoritos'
-    usuario_id = Column(Integer, ForeignKey('usuarios.id'), primary_key=True)
-    personajes_id = Column(Integer, ForeignKey('personajes.id'), primary_key=True)
+    id = Column(Integer, primary_key=True)
+    usuario_id = Column(Integer, ForeignKey('usuarios.id'))
+    personajes_id = Column(Integer, ForeignKey('personajes.id'))
     
 ## Draw from SQLAlchemy base
 render_er(Base, 'diagram.png')
